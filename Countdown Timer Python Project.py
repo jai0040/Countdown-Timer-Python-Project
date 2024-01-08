@@ -1,21 +1,15 @@
-# import the time module 
-import time 
+import time
+def countdown(t):
+    while t > 0:
+        print(t)
+        t -= 1
+        time.sleep(1)
+    print("BLAST OFF!")
 
-# define the countdown func. 
-def countdown(z): 
-	
-	while z: 
-		mins, secs = divmod(z, 60) 
-		timer = '{:02d}:{:02d}'.format(mins, secs) 
-		print(timer, end="\r") 
-		time.sleep(1) 
-		z -= 1
-	
-	print('Fire in the hole!!') 
-
-
-# input time in seconds 
-z = input("Enter the time in seconds: ") 
-
-# function call 
-countdown(int(z)) 
+print("How many seconds to count down? Enter an integer:")
+seconds = input()
+while not seconds.isdigit():
+    print("That wasn't an integer! Enter an integer:")
+    seconds = input()
+seconds = int(seconds)
+countdown(seconds)
